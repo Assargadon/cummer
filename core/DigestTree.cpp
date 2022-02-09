@@ -34,3 +34,13 @@ void DigestTree::_init_tree_buffer(int levels, int level_multipliers[])
 	std::cout<<"Full size of the DigestTree: "<<tree_buffer_size<<" elements,  "<<(tree_buffer_size*sizeof(uint64_t)/1024.0)<<" kb, "<<(tree_buffer_size*sizeof(uint64_t)/1024.0/1024.0)<<" mb"<<std::endl;
 }
 
+digest_t DigestTree::get(int level, int entry)
+{
+	return tree_buffer[level][entry];
+}
+
+void DigestTree::put(int level, int entry, digest_t value)
+{
+	tree_buffer[level][entry] = value;
+	//TODO: update upper values of my branch of the tree
+}
